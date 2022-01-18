@@ -3,6 +3,7 @@ package com.greatlearning.app;
 	import java.util.Scanner;
 	import com.greatlearning.function.AscendingSort;
 	import com.greatlearning.function.DescendingSort;
+	import com.greatlearning.function.Searching;
 	import com.greatlearning.function.Array;
 	
 public class Stockers {
@@ -10,21 +11,21 @@ public class Stockers {
 	public static void main(String args[]) {
 		
 		Scanner sc=new Scanner(System.in);
-		int n,i,True=0,False=0;
+		int size,i,True=0,False=0;
 		
 		System.out.println("Enter the no of companies ");
-		n=sc.nextInt();
+		size=sc.nextInt();
 		
 		int UserInput=0;
 		
-		double[] currentPrice = new double[n];
-		boolean[] risenPrice = new boolean[n];
-		for(i=0;i<n;i++) {
+		double[] currentPrice = new double[size];
+		boolean[] risenPrice = new boolean[size];
+		for(i=0;i<size;i++) {
 			
 			System.out.println("Enter current stock price of the company "+(i+1));
 			currentPrice[i]=sc.nextDouble();
 			
-			System.out.println("Whether company's stock price rose today compare to yesterday? (true/false) ");
+			System.out.println("Whether company's stock price rose today compare to yesterday? "+(i+1)+" (true/false) ");
 			risenPrice[i]=sc.nextBoolean();
 		}
 	
@@ -46,19 +47,19 @@ public class Stockers {
 			
 			case 1:
 				System.out.println("Stock prices in ascending order:");
-				AscendingSort.quickAsc(currentPrice,0,n-1);
-				Array.pArray(currentPrice,n);
+				AscendingSort.quickAsc(currentPrice,0,size-1);
+				Array.pArray(currentPrice,size);
 				break;
 	       
 	        case 2:
 	        	System.out.println("Stock prices in descending order:");
-	        	DescendingSort.quickDesc(currentPrice,0,n-1);
-	        	Array.pArray(currentPrice,n);
+	        	DescendingSort.quickDesc(currentPrice,0,size-1);
+	        	Array.pArray(currentPrice,size);
 	        	break;
 	                
 	        case 3:
 	        	System.out.println("Total no of companies for which the stock price rose today:");
-	        	for(i=0;i<n;i++) {	   
+	        	for(i=0;i<size;i++) {	   
 	        		if(risenPrice[i]==true)
 	        			True++;
 	        		}
@@ -67,7 +68,7 @@ public class Stockers {
 	       
 	        case 4:
 	        	System.out.println("Total no of companies for which the stock price declined today:");
-	        	for(i=0;i<n;i++) {
+	        	for(i=0;i<size;i++) {
 	        		if(risenPrice[i]==false)
 	        			False++;
 	        		}
@@ -77,14 +78,14 @@ public class Stockers {
 	        case 5:
 	        	System.out.println("Enter the key value: ");
 	        	double key = sc.nextDouble();
-	        	int result = Array.Search(currentPrice,n,key);
+	        	int result = Searching.Search(currentPrice,size,key);
 	        	if(result==-1)
 	        		System.out.println("Value not found");
 	        	else
 	        		System.out.println("Stock of value "+key+" is present");
 	        	break;
 	       
-	        case 6:
+	        case 0:
 	        	System.out.println("Exited successfully");
 	        	System.exit(1);
 	}    
