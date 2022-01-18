@@ -21,13 +21,13 @@ public class AscendingSort {
 	    return (i + 1);  
 	}  
 	
-	public static void quickAsc(double a[], int start, int end) {  
+	public static void quickAsc(double[] arr, int start, int end) {  
 	   
 		if (start < end)   {  
 	        
-			int p = partitionAscending(a, start, end);   
-	        quickAsc(a, start, p - 1);  
-	        quickAsc(a, p + 1, end);  
+			int p = partitionAscending(arr, start, end);   
+	        quickAsc(arr, start, p - 1);  
+	        quickAsc(arr, p + 1, end);  
 	    }  
 	}  
 }

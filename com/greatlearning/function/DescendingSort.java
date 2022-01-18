@@ -21,13 +21,13 @@ public class DescendingSort {
 	    return (i + 1);  
 	}
 	
-	public static void quickDesc(double a[], int start, int end){  
+	public static void quickDesc(double[] arr, int start, int end){  
 	    
 		if (start < end) {  
 	       
-			int p = partitionDesc(a, start, end);  
-	        quickDesc(a, start, p - 1);  
-	        quickDesc(a, p + 1, end);  
+			int p = partitionDesc(arr, start, end);  
+	        quickDesc(arr, start, p - 1);  
+	        quickDesc(arr, p + 1, end);  
 	    }  
 	}    
 	  

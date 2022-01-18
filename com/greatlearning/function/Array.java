@@ -7,10 +7,10 @@ public class Array {
 		    for (i = 0; i < n; i++)  
 		        System.out.print("\t"+arr[i]);  
 		}  
-	public static int Search(double a[], int n, double value) {  
+	public static int Search(double[] arr, int n, double value) {  
 			
 		  for (int i = 0; i < n; i++)  {  
-		        if (a[i] == value)  
+		        if (arr[i] == value)  
 		        return i+1;  
 		    }  
 		  return -1;  
