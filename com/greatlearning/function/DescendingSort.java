@@ -2,11 +2,11 @@ package com.greatlearning.function;
 
 public class DescendingSort {
 	
-	static int partitionDesc(double[] arr, int start, int end)  {  
+	static int partitionDesc(double[] arr, int low, int high)  {  
 		   
-		double pivot = arr[end];  
-	    int i = (start - 1);  
-	    for (int j = start; j <= end - 1; j++) {  
+		double pivot = arr[high];  
+	    int i = (low - 1);  
+	    for (int j = low; j <= high - 1; j++) {  
 	        if (arr[j] > pivot)  {  
 	            i++;  
 	            double t = arr[i];  
@@ -16,19 +16,19 @@ public class DescendingSort {
 	    }  
 	   
 	    double t = arr[i+1];  
-	    arr[i+1] = arr[end];  
-	    arr[end] = t;  
+	    arr[i+1] = arr[high];  
+	    arr[high] = t;  
 	    return (i + 1);  
 	}
 	
-	public static void quickDesc(double[] arr, int start, int end){  
+	public static void quickDesc(double[] arr, int low, int high){  
 	    
-		if (start < end) {  
+		if (low < high) {  
 	       
-			int p = partitionDesc(arr, start, end);  
-	        quickDesc(arr, start, p - 1);  
-	        quickDesc(arr, p + 1, end);  
+			int p = partitionDesc(arr, low, high);  
+	        quickDesc(arr, low, p - 1);  
+	        quickDesc(arr, p + 1, high);  
 	    }  
 	}    
-	  
+	
 }
